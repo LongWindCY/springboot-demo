@@ -50,6 +50,16 @@ CREATE TABLE `mh_userMassage`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8 COMMENT ='用户信息表';
 
+DROP TABLE IF EXISTS `mh_navbar`;
+CREATE TABLE `mh_navbar`
+(
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `title` char(12)  NOT NULL COMMENT '标题.',
+    `parent_id` int(11) not null default 0 COMMENT '父标题',
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8 COMMENT ='导航栏表';
+
 
 # 启动外键约束.
 SET FOREIGN_KEY_CHECKS = 1;

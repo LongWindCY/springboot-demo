@@ -42,6 +42,21 @@ public class UserMassage {
         this.updatedAt = updatedAt;
     }
 
+    public UserMassage(Integer userId, Double height, Double weight, Double bust, Double waistLine, Double hipLine, Double shoulderWidth, Double sleeveLength, Double clothingLength, Double trousersLength) {
+        this.id = null;
+        this.userId = userId;
+        this.height = height;
+        this.weight = weight;
+        this.bust = bust;
+        this.waistLine = waistLine;
+        this.hipLine = hipLine;
+        this.shoulderWidth = shoulderWidth;
+        this.sleeveLength = sleeveLength;
+        this.clothingLength = clothingLength;
+        this.trousersLength = trousersLength;
+        this.updatedAt = null;
+    }
+
     public UserMassage() {
         super();
     }

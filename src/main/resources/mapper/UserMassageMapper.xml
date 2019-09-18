@@ -27,20 +27,24 @@
     from mh_usermassage
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectAll" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select *
+    from mh_usermassage
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from mh_usermassage
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.example.demo.mh_entity.UserMassage">
-    insert into mh_usermassage (id, user_id, height, 
+    insert into mh_usermassage (user_id, height,
       weight, bust, waist_line, 
       hip_line, shoulder_width, sleeve_length, 
-      clothing_length, trousers_length, updated_at
+      clothing_length, trousers_length
       )
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{height,jdbcType=DOUBLE}, 
+    values (#{userId,jdbcType=INTEGER}, #{height,jdbcType=DOUBLE},
       #{weight,jdbcType=DOUBLE}, #{bust,jdbcType=DOUBLE}, #{waistLine,jdbcType=DOUBLE}, 
       #{hipLine,jdbcType=DOUBLE}, #{shoulderWidth,jdbcType=DOUBLE}, #{sleeveLength,jdbcType=DOUBLE}, 
-      #{clothingLength,jdbcType=DOUBLE}, #{trousersLength,jdbcType=DOUBLE}, #{updatedAt,jdbcType=TIMESTAMP}
+      #{clothingLength,jdbcType=DOUBLE}, #{trousersLength,jdbcType=DOUBLE}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.example.demo.mh_entity.UserMassage">
