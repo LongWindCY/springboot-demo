@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mh_dao.RuleUserMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.mh_entity.RuleUser">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="account" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="password" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="remark" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="power" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="created_at" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="updated_at" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, account, password, remark, power, created_at, updated_at
+  </sql>
+  <select id="selectRuleUserById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from mh_ruleuser
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectAllRuleUser" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select *
+    from mh_ruleuser
+  </select>
+  <delete id="deleteRuleUserById" parameterType="java.lang.Integer">
+    delete from mh_ruleuser
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="addRuleUser" parameterType="com.example.demo.mh_entity.RuleUser">
+    insert into mh_ruleuser (account, password,
+      remark, power)
+    values (#{account,jdbcType=CHAR}, #{password,jdbcType=CHAR},
+      #{remark,jdbcType=CHAR}, #{power,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.mh_entity.RuleUser">
+    insert into mh_ruleuser
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="account != null">
+        account,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+      <if test="power != null">
+        power,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="updatedAt != null">
+        updated_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=CHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=CHAR},
+      </if>
+      <if test="power != null">
+        #{power,jdbcType=INTEGER},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.mh_entity.RuleUser">
+    update mh_ruleuser
+    <set>
+      <if test="account != null">
+        account = #{account,jdbcType=CHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=CHAR},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=CHAR},
+      </if>
+      <if test="power != null">
+        power = #{power,jdbcType=INTEGER},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.mh_entity.RuleUser">
+    update mh_ruleuser
+    set account = #{account,jdbcType=CHAR},
+      password = #{password,jdbcType=CHAR},
+      remark = #{remark,jdbcType=CHAR},
+      power = #{power,jdbcType=INTEGER},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

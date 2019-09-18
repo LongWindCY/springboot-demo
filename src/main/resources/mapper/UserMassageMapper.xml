@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mh_dao.UserMassageMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.mh_entity.UserMassage">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="user_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="height" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="weight" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="bust" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="waist_line" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="hip_line" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="shoulder_width" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="sleeve_length" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="clothing_length" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="trousers_length" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="updated_at" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, height, weight, bust, waist_line, hip_line, shoulder_width, sleeve_length, 
+    clothing_length, trousers_length, updated_at
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from mh_usermassage
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from mh_usermassage
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.mh_entity.UserMassage">
+    insert into mh_usermassage (id, user_id, height, 
+      weight, bust, waist_line, 
+      hip_line, shoulder_width, sleeve_length, 
+      clothing_length, trousers_length, updated_at
+      )
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{height,jdbcType=DOUBLE}, 
+      #{weight,jdbcType=DOUBLE}, #{bust,jdbcType=DOUBLE}, #{waistLine,jdbcType=DOUBLE}, 
+      #{hipLine,jdbcType=DOUBLE}, #{shoulderWidth,jdbcType=DOUBLE}, #{sleeveLength,jdbcType=DOUBLE}, 
+      #{clothingLength,jdbcType=DOUBLE}, #{trousersLength,jdbcType=DOUBLE}, #{updatedAt,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.mh_entity.UserMassage">
+    insert into mh_usermassage
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="height != null">
+        height,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="bust != null">
+        bust,
+      </if>
+      <if test="waistLine != null">
+        waist_line,
+      </if>
+      <if test="hipLine != null">
+        hip_line,
+      </if>
+      <if test="shoulderWidth != null">
+        shoulder_width,
+      </if>
+      <if test="sleeveLength != null">
+        sleeve_length,
+      </if>
+      <if test="clothingLength != null">
+        clothing_length,
+      </if>
+      <if test="trousersLength != null">
+        trousers_length,
+      </if>
+      <if test="updatedAt != null">
+        updated_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="height != null">
+        #{height,jdbcType=DOUBLE},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="bust != null">
+        #{bust,jdbcType=DOUBLE},
+      </if>
+      <if test="waistLine != null">
+        #{waistLine,jdbcType=DOUBLE},
+      </if>
+      <if test="hipLine != null">
+        #{hipLine,jdbcType=DOUBLE},
+      </if>
+      <if test="shoulderWidth != null">
+        #{shoulderWidth,jdbcType=DOUBLE},
+      </if>
+      <if test="sleeveLength != null">
+        #{sleeveLength,jdbcType=DOUBLE},
+      </if>
+      <if test="clothingLength != null">
+        #{clothingLength,jdbcType=DOUBLE},
+      </if>
+      <if test="trousersLength != null">
+        #{trousersLength,jdbcType=DOUBLE},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.mh_entity.UserMassage">
+    update mh_usermassage
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="height != null">
+        height = #{height,jdbcType=DOUBLE},
+      </if>
+      <if test="weight != null">
+        weight = #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="bust != null">
+        bust = #{bust,jdbcType=DOUBLE},
+      </if>
+      <if test="waistLine != null">
+        waist_line = #{waistLine,jdbcType=DOUBLE},
+      </if>
+      <if test="hipLine != null">
+        hip_line = #{hipLine,jdbcType=DOUBLE},
+      </if>
+      <if test="shoulderWidth != null">
+        shoulder_width = #{shoulderWidth,jdbcType=DOUBLE},
+      </if>
+      <if test="sleeveLength != null">
+        sleeve_length = #{sleeveLength,jdbcType=DOUBLE},
+      </if>
+      <if test="clothingLength != null">
+        clothing_length = #{clothingLength,jdbcType=DOUBLE},
+      </if>
+      <if test="trousersLength != null">
+        trousers_length = #{trousersLength,jdbcType=DOUBLE},
+      </if>
+      <if test="updatedAt != null">
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.mh_entity.UserMassage">
+    update mh_usermassage
+    set user_id = #{userId,jdbcType=INTEGER},
+      height = #{height,jdbcType=DOUBLE},
+      weight = #{weight,jdbcType=DOUBLE},
+      bust = #{bust,jdbcType=DOUBLE},
+      waist_line = #{waistLine,jdbcType=DOUBLE},
+      hip_line = #{hipLine,jdbcType=DOUBLE},
+      shoulder_width = #{shoulderWidth,jdbcType=DOUBLE},
+      sleeve_length = #{sleeveLength,jdbcType=DOUBLE},
+      clothing_length = #{clothingLength,jdbcType=DOUBLE},
+      trousers_length = #{trousersLength,jdbcType=DOUBLE},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
