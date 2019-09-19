@@ -102,9 +102,12 @@
         <!--               enableUpdateByExample="false" enableDeleteByExample="false"-->
         <!--               enableSelectByExample="false" selectByExampleQueryId="false"/>-->
         <!--        用户信息表-->
-        <table tableName="mh_usermassage" domainObjectName="UserMassage" enableCountByExample="false"
-               enableUpdateByExample="false" enableDeleteByExample="false"
-               enableSelectByExample="false" selectByExampleQueryId="false"/>
+<!--        <table tableName="mh_usermassage" domainObjectName="UserMassage" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--               enableSelectByExample="false" selectByExampleQueryId="false"/>-->
+                <table tableName="mh_navbar" domainObjectName="NavBar" enableCountByExample="false"
+                       enableUpdateByExample="false" enableDeleteByExample="false"
+                       enableSelectByExample="false" selectByExampleQueryId="false"/>
 
         <!--        <table tableName="project_notice" domainObjectName="Notice" enableCountByExample="false"-->
         <!--               enableUpdateByExample="false" enableDeleteByExample="false"-->
