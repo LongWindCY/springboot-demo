@@ -4,8 +4,11 @@ import com.example.demo.mh_entity.User;
 import com.example.demo.mh_service.MhUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,15 +31,22 @@ public class MhUserController {
     }
 
     /**
-     * 根据id查找用户
-     * @param id
+     * login 用户登录
+     * @param account
+     * @param password
      * @return
      */
-    @ApiOperation(value = "根据id获取用户", notes = "获取指定id用户", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ApiOperation(value = "用户登录", notes = "用户登录", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @RequestMapping(method = RequestMethod.GET, value = "/A01")
-    User searchUserById(int id){
-        return mhUserService.selectUserById(id);
+    public Boolean getUserByAccountAndPassword(String account,String password){
+        User selectUser = new User(account,password);
+        User user = mhUserService.loginByAccountAndPassword(selectUser);
+        if (user != null){
+            return true;
+        }else
+            return false;
     }
+
 
     /**
      * 查找所有用户
