@@ -105,16 +105,35 @@
 <!--        <table tableName="mh_usermassage" domainObjectName="UserMassage" enableCountByExample="false"-->
 <!--               enableUpdateByExample="false" enableDeleteByExample="false"-->
 <!--               enableSelectByExample="false" selectByExampleQueryId="false"/>-->
-                <table tableName="mh_navbar" domainObjectName="NavBar" enableCountByExample="false"
-                       enableUpdateByExample="false" enableDeleteByExample="false"
-                       enableSelectByExample="false" selectByExampleQueryId="false"/>
+<!--        导航栏-->
+<!--                <table tableName="mh_navbar" domainObjectName="NavBar" enableCountByExample="false"-->
+<!--                       enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--                       enableSelectByExample="false" selectByExampleQueryId="false"/>-->
+<!--        图片地址-->
+<!--        <table tableName="mh_photolocation" domainObjectName="PhotoLocation" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--               enableSelectByExample="false" selectByExampleQueryId="false"/>-->
+<!--        首页图片信息-->
+<!--        <table tableName="mh_homephoto" domainObjectName="HomePhoto" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--               enableSelectByExample="false" selectByExampleQueryId="false"/>-->
+<!--        服装分类-->
+<!--        <table tableName="mh_classification" domainObjectName="Classification" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--               enableSelectByExample="false" selectByExampleQueryId="false"/>-->
+<!--        文章-->
+<!--        <table tableName="mh_article" domainObjectName="Article" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--               enableSelectByExample="false" selectByExampleQueryId="false"/>-->
+<!--        文章类型-->
+        <table tableName="mh_articleclass" domainObjectName="ArticleClass" enableCountByExample="false"
+               enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false"/>
+<!--        门店-->
+<!--        <table tableName="mh_store" domainObjectName="Store" enableCountByExample="false"-->
+<!--               enableUpdateByExample="false" enableDeleteByExample="false"-->
+<!--               enableSelectByExample="false" selectByExampleQueryId="false"/>-->
 
-        <!--        <table tableName="project_notice" domainObjectName="Notice" enableCountByExample="false"-->
-        <!--               enableUpdateByExample="false" enableDeleteByExample="false"-->
-        <!--               enableSelectByExample="false" selectByExampleQueryId="false"/>-->
-        <!--        <table tableName="project_job" domainObjectName="Job" enableCountByExample="false"-->
-        <!--               enableUpdateByExample="false" enableDeleteByExample="false"-->
-        <!--               enableSelectByExample="false" selectByExampleQueryId="false"/>-->
 
 
 

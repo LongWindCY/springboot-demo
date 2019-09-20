@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mh_dao.PhotoLocationMapper">
+  <resultMap id="BaseResultMap" type="com.example.demo.mh_entity.PhotoLocation">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="class_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="location" javaType="java.lang.String" jdbcType="CHAR" />
+      <arg column="massage" javaType="java.lang.String" jdbcType="CHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, class_id, location, massage
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from mh_photolocation
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from mh_photolocation
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.demo.mh_entity.PhotoLocation">
+    insert into mh_photolocation (id, class_id, location, 
+      massage)
+    values (#{id,jdbcType=INTEGER}, #{classId,jdbcType=INTEGER}, #{location,jdbcType=CHAR}, 
+      #{massage,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.demo.mh_entity.PhotoLocation">
+    insert into mh_photolocation
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="classId != null">
+        class_id,
+      </if>
+      <if test="location != null">
+        location,
+      </if>
+      <if test="massage != null">
+        massage,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="classId != null">
+        #{classId,jdbcType=INTEGER},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=CHAR},
+      </if>
+      <if test="massage != null">
+        #{massage,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.example.demo.mh_entity.PhotoLocation">
+    update mh_photolocation
+    <set>
+      <if test="classId != null">
+        class_id = #{classId,jdbcType=INTEGER},
+      </if>
+      <if test="location != null">
+        location = #{location,jdbcType=CHAR},
+      </if>
+      <if test="massage != null">
+        massage = #{massage,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.example.demo.mh_entity.PhotoLocation">
+    update mh_photolocation
+    set class_id = #{classId,jdbcType=INTEGER},
+      location = #{location,jdbcType=CHAR},
+      massage = #{massage,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

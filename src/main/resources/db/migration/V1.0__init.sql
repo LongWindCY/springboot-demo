@@ -60,6 +60,73 @@ CREATE TABLE `mh_navbar`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8 COMMENT ='导航栏表';
 
+DROP TABLE IF EXISTS `mh_classification`;
+CREATE TABLE `mh_classification`
+(
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `nav_id` int(11) not null comment '导航栏关联',
+    `title` char(12)  NOT NULL COMMENT '标题.',
+    `remark` char(12) not null COMMENT '备注',
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8 COMMENT ='类别导航';
+
+#new
+DROP TABLE IF EXISTS `mh_photolocation`;
+CREATE TABLE `mh_photolocation`
+(
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `class_id` int(11) not null comment '类别关联',
+    `location` char(100)  NOT NULL COMMENT '地址.',
+    `massage` char(12) not null COMMENT '备注',
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8 COMMENT ='类别图片地址';
+
+DROP TABLE IF EXISTS `mh_homephoto`;
+CREATE TABLE `mh_homephoto`
+(
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `massage` char(50) not null comment '图片信息',
+    `sign` int(11)  NOT NULL COMMENT '图片标识.',
+    `location` char(100) not null COMMENT '地址',
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8 COMMENT ='首页图片';
+
+DROP TABLE IF EXISTS `mh_store`;
+CREATE TABLE `mh_store`
+(
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `name` char(12) not null comment '图片信息',
+    `address` char(50) not null comment '地址',
+    `address_clear` char(100) not null comment '详细地址',
+    `introduction` char(100)  NOT NULL COMMENT '简介.',
+    `img_location` char(100) not null COMMENT '图片地址',
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8 COMMENT ='线下门店';
+
+DROP TABLE IF EXISTS `mh_articleclass`;
+CREATE TABLE `mh_articleclass`
+(
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `class` char(20) not null comment '文章类型',
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8 COMMENT ='文章类型';
+
+DROP TABLE IF EXISTS `mh_article`;
+CREATE TABLE `mh_article`
+(
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `class_id` int(11) not null comment '文章类型关联',
+    `title` char(26) not null comment '文章标题',
+    `content` text not null comment '文章内容',
+    `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8 COMMENT ='文章';
 
 # 启动外键约束.
 SET FOREIGN_KEY_CHECKS = 1;
