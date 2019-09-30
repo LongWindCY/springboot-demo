@@ -25,6 +25,11 @@
     select *
     from mh_ruleuser
   </select>
+  <select id="loginByAccountAndPassword" parameterType="com.example.demo.mh_entity.RuleUser" resultMap="BaseResultMap">
+    select *
+    from mh_ruleuser
+    where account = #{account,jdbcType=CHAR} and password = #{password,jdbcType=CHAR}
+  </select>
   <delete id="deleteRuleUserById" parameterType="java.lang.Integer">
     delete from mh_ruleuser
     where id = #{id,jdbcType=INTEGER}

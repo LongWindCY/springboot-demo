@@ -57,4 +57,13 @@ public class MhUserServiceimpl implements MhUserService {
     public List<User> selectAllUser(){
         return userMapper.selectAllUser();
     }
+
+    /**
+     * login
+     * @param user
+     * @return
+     */
+    public User loginByAccountAndPassword(User user){
+        return userMapper.loginByAccountAndPassword(user);
+    }
 }

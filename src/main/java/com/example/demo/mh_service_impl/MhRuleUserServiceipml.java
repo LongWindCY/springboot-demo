@@ -58,4 +58,8 @@ public class MhRuleUserServiceipml implements MhRuleUserService {
     public int deleteRuleUserById(int id){
         return ruleUserMapper.deleteRuleUserById(id);
     }
+
+    public RuleUser loginByAccountAndPassword(RuleUser ruleUser){
+        return ruleUserMapper.loginByAccountAndPassword(ruleUser);
+    }
 }

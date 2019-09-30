@@ -16,6 +16,13 @@ public class HomePhoto {
         this.location = location;
     }
 
+    public HomePhoto(String massage, Integer sign, String location) {
+        this.id = null;
+        this.massage = massage;
+        this.sign = sign;
+        this.location = location;
+    }
+
     public HomePhoto() {
         super();
     }

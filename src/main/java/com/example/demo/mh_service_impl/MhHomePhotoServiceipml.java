@@ -37,4 +37,22 @@ public class MhHomePhotoServiceipml implements MhHomePhotoService {
     public List<HomePhoto> selectAll(){
         return homePhotoMapper.selectAll();
     }
+
+    /**
+     * 添加首页图片信息
+     * @param homePhoto
+     * @return
+     */
+    public int insert(HomePhoto homePhoto){
+        return homePhotoMapper.insert(homePhoto);
+    }
+
+    /**
+     * 根据id删除首页照片信息
+     * @param id
+     * @return
+     */
+    public int deleteByPrimaryKey(int id){
+        return homePhotoMapper.deleteByPrimaryKey(id);
+    }
 }

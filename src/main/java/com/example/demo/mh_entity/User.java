@@ -33,6 +33,19 @@ public class User {
         this.updatedAt = updatedAt;
     }
 
+    public User(String account,String password){
+        this.id = null;
+        this.account = account;
+        this.password = password;
+        this.phone = null;
+        this.address = null;
+        this.gender = null;
+        this.remark = null;
+        this.createdAt = null;
+        this.updatedAt = null;
+
+    }
+
     public User() {
         super();
     }

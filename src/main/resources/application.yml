@@ -32,4 +32,7 @@ mybatis:
 #
 #flyway:
 #  validate-on-migrate: false
-
+logging:
+  level:
+    com.example.demo.mh_dao.UserMapper:
+      debug

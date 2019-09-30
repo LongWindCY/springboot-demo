@@ -13,4 +13,6 @@ public interface MhRuleUserService extends MhBseService {
     int addRuleUser(RuleUser ruleUser);
 
     int deleteRuleUserById(int id);
+
+    RuleUser loginByAccountAndPassword(RuleUser ruleUser);
 }

@@ -15,6 +15,8 @@ public interface RuleUserMapper {
 
     List<RuleUser> selectAllRuleUser();
 
+    RuleUser loginByAccountAndPassword(RuleUser ruleUser);
+
     int updateByPrimaryKeySelective(RuleUser record);
 
     int updateByPrimaryKey(RuleUser record);

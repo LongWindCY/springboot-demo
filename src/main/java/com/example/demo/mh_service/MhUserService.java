@@ -8,6 +8,8 @@ public interface MhUserService extends MhBseService {
 
     User selectUserById(int id);
 
+    User loginByAccountAndPassword(User user);
+
     int addUser(User user);
 
     int deleteUserById(int id);

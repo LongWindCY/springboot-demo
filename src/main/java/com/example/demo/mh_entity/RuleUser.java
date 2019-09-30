@@ -37,6 +37,16 @@ public class RuleUser {
         this.updatedAt = null;
     }
 
+    public RuleUser(String account, String password){
+        this.id = null;
+        this.account = account;
+        this.password = password;
+        this.remark = null;
+        this.power = null;
+        this.createdAt = null;
+        this.updatedAt = null;
+    }
+
     public RuleUser() {
         super();
     }

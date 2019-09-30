@@ -6,10 +6,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -77,4 +74,20 @@ public class MhRuleUserController {
         return mhRuleUserService.deleteRuleUserById(id);
     }
 
+    /**
+     * login 用户登录
+     * @param account
+     * @param password
+     * @return
+     */
+    @ApiOperation(value = "用户登录", notes = "用户登录", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(method = RequestMethod.POST, value = "/A05")
+    public RuleUser getUserByAccountAndPassword( String account, String password){
+        RuleUser selectUser = new RuleUser(account,password);
+        RuleUser user = mhRuleUserService.loginByAccountAndPassword(selectUser);
+        if (user != null){
+            return user;
+        }else
+            return null;
+    }
 }
