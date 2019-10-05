@@ -2,8 +2,10 @@ package com.example.demo.mh_service_impl;
 
 import com.example.demo.mh_dao.UserMapper;
 import com.example.demo.mh_entity.User;
+import com.example.demo.mh_entity.UserSearchWord;
 import com.example.demo.mh_service.MhUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,7 +27,7 @@ public class MhUserServiceimpl implements MhUserService {
     }
 
     /**
-     * 查找所有用户
+     * 查找指定用户
      * @return
      */
     public User selectUserById(int id) {
@@ -54,8 +56,8 @@ public class MhUserServiceimpl implements MhUserService {
      * 查找所有用户
      * @return
      */
-    public List<User> selectAllUser(){
-        return userMapper.selectAllUser();
+    public List<User> selectAllUser(UserSearchWord userSearchWord){
+        return userMapper.selectAllUser(userSearchWord);
     }
 
     /**
@@ -65,5 +67,13 @@ public class MhUserServiceimpl implements MhUserService {
      */
     public User loginByAccountAndPassword(User user){
         return userMapper.loginByAccountAndPassword(user);
+    }
+
+    /**
+     * 总条目
+     * @return
+     */
+    public int countUser(UserSearchWord userSearchWord){
+        return userMapper.countUser(userSearchWord);
     }
 }

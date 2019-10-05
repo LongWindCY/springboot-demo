@@ -83,10 +83,11 @@ public class MhRuleUserController {
     @ApiOperation(value = "用户登录", notes = "用户登录", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @RequestMapping(method = RequestMethod.POST, value = "/A05")
     public RuleUser getUserByAccountAndPassword( String account, String password){
+//        System.out.println(account + password); //测试
         RuleUser selectUser = new RuleUser(account,password);
-        RuleUser user = mhRuleUserService.loginByAccountAndPassword(selectUser);
-        if (user != null){
-            return user;
+        RuleUser ruleUser = mhRuleUserService.loginByAccountAndPassword(selectUser);
+        if (ruleUser != null){
+            return ruleUser;
         }else
             return null;
     }

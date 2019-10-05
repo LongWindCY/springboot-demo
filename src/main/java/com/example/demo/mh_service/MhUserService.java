@@ -1,6 +1,7 @@
 package com.example.demo.mh_service;
 
 import com.example.demo.mh_entity.User;
+import com.example.demo.mh_entity.UserSearchWord;
 
 import java.util.List;
 
@@ -14,5 +15,7 @@ public interface MhUserService extends MhBseService {
 
     int deleteUserById(int id);
 
-    List<User> selectAllUser();
+    List<User> selectAllUser(UserSearchWord userSearchWord);
+
+    int countUser(UserSearchWord userSearchWord);
 }

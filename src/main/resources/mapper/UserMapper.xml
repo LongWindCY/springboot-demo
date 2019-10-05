@@ -23,9 +23,22 @@
     from mh_user
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectAllUser" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="countUser" parameterType="com.example.demo.mh_entity.UserSearchWord" resultType="java.lang.Integer">
+    SELECT count(*)
+    FROM mh_user
+    where concat(address) LIKE concat('%',#{searchAddress,jdbcType=CHAR},'%')
+    <if test="searchAccount != null and searchAccount != ''">and account = #{searchAccount,jdbcType=CHAR}</if>
+    <if test="searchPhone != null and searchPhone != ''">and phone = #{searchPhone,jdbcType=CHAR}</if>
+    <if test="searchGender != null and searchGender != ''">and gender = #{searchGender,jdbcType=CHAR}</if>
+  </select>
+  <select id="selectAllUser" parameterType="com.example.demo.mh_entity.UserSearchWord" resultMap="BaseResultMap">
     select *
     from mh_user
+    where concat(address) LIKE concat('%',#{searchAddress,jdbcType=CHAR},'%')
+    <if test="searchAccount != null and searchAccount != ''">and account = #{searchAccount,jdbcType=CHAR}</if>
+    <if test="searchPhone != null and searchPhone != ''">and phone = #{searchPhone,jdbcType=CHAR}</if>
+    <if test="searchGender != null and searchGender != ''">and gender = #{searchGender,jdbcType=CHAR}</if>
+    LIMIT #{pageSize} OFFSET #{offset}
   </select>
   <select id="loginByAccountAndPassword" parameterType="com.example.demo.mh_entity.User" resultMap="BaseResultMap">
     select *
