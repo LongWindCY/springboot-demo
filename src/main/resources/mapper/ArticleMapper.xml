@@ -19,7 +19,7 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    id, class_id, title, created_at
+    id, class_id, title,content, created_at
   </sql>
   <sql id="Blob_Column_List">
     content
@@ -31,6 +31,13 @@
     <include refid="Blob_Column_List" />
     from mh_article
     where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="getAllArticles" parameterType="com.example.demo.mh_entity.ArticleSearchWord" resultMap="ResultMapWithBLOBs">
+    select *
+    from mh_article
+    where concat(title) LIKE concat('%',#{searchTitle,jdbcType=CHAR},'%')
+    <if test="classId != null and classId != ''">and class_id = #{classId,jdbcType=INTEGER}</if>
+    LIMIT #{pageSize,jdbcType=INTEGER} OFFSET #{offset,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from mh_article
