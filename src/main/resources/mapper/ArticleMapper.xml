@@ -39,6 +39,13 @@
     <if test="classId != null and classId != ''">and class_id = #{classId,jdbcType=INTEGER}</if>
     LIMIT #{pageSize,jdbcType=INTEGER} OFFSET #{offset,jdbcType=INTEGER}
   </select>
+  <select id="countArticle" parameterType="com.example.demo.mh_entity.ArticleSearchWord" resultType="int">
+    select COUNT(*)
+    from mh_article
+    where concat(title) LIKE concat('%',#{searchTitle,jdbcType=CHAR},'%')
+    <if test="classId != null and classId != ''">and class_id = #{classId,jdbcType=INTEGER}</if>
+    LIMIT #{pageSize,jdbcType=INTEGER} OFFSET #{offset,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from mh_article
     where id = #{id,jdbcType=INTEGER}

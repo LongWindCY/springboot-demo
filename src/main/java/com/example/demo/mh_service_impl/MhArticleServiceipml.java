@@ -30,4 +30,13 @@ public class MhArticleServiceipml implements MhArticleService {
     public List<Article> getAllArticles(ArticleSearchWord articleSearchWord){
         return articleMapper.getAllArticles(articleSearchWord);
     }
+
+    /**
+     * 文章统计（分页/查询）
+     * @param articleSearchWord
+     * @return
+     */
+    public int countArticle(ArticleSearchWord articleSearchWord){
+        return articleMapper.countArticle(articleSearchWord);
+    }
 }

@@ -44,4 +44,23 @@ public class MhArticleController {
         ArticleSearchWord articleSearchWord = new ArticleSearchWord(pageSize,offset,classId,searchTitle);
         return mhArticleService.getAllArticles(articleSearchWord);
     }
+
+    /**
+     * 文章统计(分页/查询)
+     * @param page
+     * @param pageSize
+     * @param classId
+     * @param searchTitle
+     * @return
+     */
+    @ApiOperation(value = "文章统计(分页/查询)", notes = "文章统计(分页/查询)", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(method = RequestMethod.GET, value = "/A02")
+    public int countArticle(Integer page,
+                                        Integer pageSize,
+                                        Integer classId,
+                                        String searchTitle){
+        Integer offset = (page - 1)*pageSize;
+        ArticleSearchWord articleSearchWord = new ArticleSearchWord(pageSize,offset,classId,searchTitle);
+        return mhArticleService.countArticle(articleSearchWord);
+    }
 }
