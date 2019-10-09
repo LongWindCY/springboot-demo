@@ -24,6 +24,11 @@
   <select id="selectAllRuleUser" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select *
     from mh_ruleuser
+    LIMIT #{pageSize} OFFSET #{offset}
+  </select>
+  <select id="countRuleUser" resultType="java.lang.Integer">
+    SELECT count(*)
+    FROM mh_ruleuser
   </select>
   <select id="loginByAccountAndPassword" parameterType="com.example.demo.mh_entity.RuleUser" resultMap="BaseResultMap">
     select *
@@ -118,9 +123,7 @@
     set account = #{account,jdbcType=CHAR},
       password = #{password,jdbcType=CHAR},
       remark = #{remark,jdbcType=CHAR},
-      power = #{power,jdbcType=INTEGER},
-      created_at = #{createdAt,jdbcType=TIMESTAMP},
-      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+      power = #{power,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

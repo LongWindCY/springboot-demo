@@ -7,21 +7,17 @@ public class NavBar {
 
     private Integer parentId;
 
-    private String route;
-
-    public NavBar(Integer id, String title, Integer parentId, String route) {
+    public NavBar(Integer id, String title, Integer parentId) {
         this.id = id;
         this.title = title;
         this.parentId = parentId;
-        this.route = route;
     }
-
-    public NavBar(String title, Integer parentId, String route){
+    public NavBar(String title, Integer parentId){
         this.id = null;
         this.title = title;
         this.parentId = parentId;
-        this.route = route;
     }
+
 
     public NavBar() {
         super();
@@ -49,13 +45,5 @@ public class NavBar {
 
     public void setParentId(Integer parentId) {
         this.parentId = parentId;
-    }
-
-    public String getRoute() {
-        return route;
-    }
-
-    public void setRoute(String route) {
-        this.route = route;
     }
 }

@@ -26,7 +26,6 @@ public class RuleUser {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
-
     public RuleUser(String account, String password, String remark, Integer power){
         this.id = null;
         this.account = account;
@@ -46,6 +45,7 @@ public class RuleUser {
         this.createdAt = null;
         this.updatedAt = null;
     }
+
 
     public RuleUser() {
         super();

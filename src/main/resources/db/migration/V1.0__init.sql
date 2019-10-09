@@ -15,6 +15,8 @@ CREATE TABLE `mh_user`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8 COMMENT ='用户表';
 
+
+
 DROP TABLE IF EXISTS `mh_ruleUser`;
 CREATE TABLE `mh_ruleUser`
 (
@@ -29,6 +31,7 @@ CREATE TABLE `mh_ruleUser`
     UNIQUE INDEX `unique_account` (`account`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8 COMMENT ='管理员表';
+
 
 
 DROP TABLE IF EXISTS `mh_userMassage`;
@@ -50,6 +53,8 @@ CREATE TABLE `mh_userMassage`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8 COMMENT ='用户信息表';
 
+
+
 DROP TABLE IF EXISTS `mh_navbar`;
 CREATE TABLE `mh_navbar`
 (
@@ -59,6 +64,8 @@ CREATE TABLE `mh_navbar`
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8 COMMENT ='导航栏表';
+
+
 
 DROP TABLE IF EXISTS `mh_classification`;
 CREATE TABLE `mh_classification`
@@ -71,7 +78,9 @@ CREATE TABLE `mh_classification`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8 COMMENT ='类别导航';
 
-#new
+
+
+
 DROP TABLE IF EXISTS `mh_photolocation`;
 CREATE TABLE `mh_photolocation`
 (
@@ -83,6 +92,8 @@ CREATE TABLE `mh_photolocation`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8 COMMENT ='类别图片地址';
 
+
+
 DROP TABLE IF EXISTS `mh_homephoto`;
 CREATE TABLE `mh_homephoto`
 (
@@ -93,6 +104,8 @@ CREATE TABLE `mh_homephoto`
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8 COMMENT ='首页图片';
+
+
 
 DROP TABLE IF EXISTS `mh_store`;
 CREATE TABLE `mh_store`
@@ -107,14 +120,18 @@ CREATE TABLE `mh_store`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8 COMMENT ='线下门店';
 
+
+
 DROP TABLE IF EXISTS `mh_articleclass`;
 CREATE TABLE `mh_articleclass`
 (
     `id` int(11) NOT NULL AUTO_INCREMENT,
-    `class` char(20) not null comment '文章类型',
+    `class_type` char(20) not null comment '文章类型',
     PRIMARY KEY (`id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8 COMMENT ='文章类型';
+
+
 
 DROP TABLE IF EXISTS `mh_article`;
 CREATE TABLE `mh_article`
@@ -128,5 +145,24 @@ CREATE TABLE `mh_article`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8 COMMENT ='文章';
 
+
+
+DROP TABLE IF EXISTS `mh_order`;
+CREATE TABLE `mh_article`
+(
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `user_id` int(11) NOT NULL COMMENT '用户id',
+    `order_account` char(16) NOT NULL COMMENT '账户.',
+    `order_massage` char(100)  NOT NULL COMMENT '订单信息',
+    `order_number` char(20) COMMENT '订单编号',
+    `address` char(100) COMMENT '地址',
+    `phone` char(11) COMMENT '性别',
+    `remark` char(50) COMMENT '备注',
+    `state` char(4) COMMENT '订单状态',
+    `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    PRIMARY KEY (`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8 COMMENT ='订单';
 # 启动外键约束.
 SET FOREIGN_KEY_CHECKS = 1;

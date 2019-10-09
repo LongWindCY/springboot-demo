@@ -21,7 +21,7 @@ public class User {
 
     private Date updatedAt;
 
-    public User(Integer id,String account, String password, String phone, String address, String gender, String remark, Date createdAt, Date updatedAt) {
+    public User(Integer id, String account, String password, String phone, String address, String gender, String remark, Date createdAt, Date updatedAt) {
         this.id = id;
         this.account = account;
         this.password = password;
@@ -32,7 +32,6 @@ public class User {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
-
     public User(String account,String password){
         this.id = null;
         this.account = account;

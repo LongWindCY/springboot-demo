@@ -15,7 +15,6 @@ public class HomePhoto {
         this.sign = sign;
         this.location = location;
     }
-
     public HomePhoto(String massage, Integer sign, String location) {
         this.id = null;
         this.massage = massage;

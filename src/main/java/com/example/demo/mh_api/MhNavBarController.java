@@ -70,8 +70,8 @@ public class MhNavBarController {
      */
     @ApiOperation(value = "添加导航栏", notes = "添加导航栏", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @RequestMapping(method = RequestMethod.POST, value = "/A03")
-    int insert(String title, Integer parent_id, String route){
-        NavBar navBar = new NavBar(title, parent_id,route);
+    int insert(String title, Integer parent_id){
+        NavBar navBar = new NavBar(title, parent_id);
         return mhNavBarService.insert(navBar);
     }
 

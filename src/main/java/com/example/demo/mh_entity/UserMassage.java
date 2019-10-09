@@ -41,7 +41,6 @@ public class UserMassage {
         this.trousersLength = trousersLength;
         this.updatedAt = updatedAt;
     }
-
     public UserMassage(Integer userId, Double height, Double weight, Double bust, Double waistLine, Double hipLine, Double shoulderWidth, Double sleeveLength, Double clothingLength, Double trousersLength) {
         this.id = null;
         this.userId = userId;

@@ -37,8 +37,8 @@ public class MhRuleUserServiceipml implements MhRuleUserService {
      * 查询所有管理员
      * @return
      */
-    public List<RuleUser> selectAllRuleUser (){
-        return ruleUserMapper.selectAllRuleUser();
+    public List<RuleUser> selectAllRuleUser (Integer pageSize,Integer offset){
+        return ruleUserMapper.selectAllRuleUser(pageSize,offset);
     }
 
     /**
@@ -59,7 +59,29 @@ public class MhRuleUserServiceipml implements MhRuleUserService {
         return ruleUserMapper.deleteRuleUserById(id);
     }
 
+    /**
+     * 登录
+     * @param ruleUser
+     * @return
+     */
     public RuleUser loginByAccountAndPassword(RuleUser ruleUser){
         return ruleUserMapper.loginByAccountAndPassword(ruleUser);
+    }
+
+    /**
+     * 总条目
+     * @return
+     */
+    public int countRuleUser(){
+        return ruleUserMapper.countRuleUser();
+    }
+
+    /**
+     * 权限更新
+     * @param ruleUser
+     * @return
+     */
+    public int updateByPrimaryKey(RuleUser ruleUser){
+        return ruleUserMapper.updateByPrimaryKey(ruleUser);
     }
 }

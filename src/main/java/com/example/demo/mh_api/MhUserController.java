@@ -7,7 +7,10 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -83,7 +86,7 @@ public class MhUserController {
     @ApiOperation(value = "添加用户", notes = "添加用户", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @RequestMapping(method = RequestMethod.POST, value = "/A03")
     public int addUser(String account, String password, String phone, String address, String gender, String remark){
-        User user = new  User(null,account,password,phone,address,gender,remark,null,null);
+        User user = new User(null,account,password,phone,address,gender,remark,null,null);
         return mhUserService.addUser(user);
     }
 

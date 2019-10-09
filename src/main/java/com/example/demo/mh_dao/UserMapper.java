@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface UserMapper {
-    int deleteUserById(@Param("id")Integer id);
+    int deleteUserById(@Param("id") Integer id);
 
     int addUser(User record);
 

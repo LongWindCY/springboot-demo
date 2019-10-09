@@ -13,11 +13,13 @@ public interface RuleUserMapper {
 
     RuleUser selectRuleUserById(Integer id);
 
-    List<RuleUser> selectAllRuleUser();
+    List<RuleUser> selectAllRuleUser(Integer pageSize,Integer offset);
 
     RuleUser loginByAccountAndPassword(RuleUser ruleUser);
 
     int updateByPrimaryKeySelective(RuleUser record);
 
     int updateByPrimaryKey(RuleUser record);
+
+    int countRuleUser();
 }

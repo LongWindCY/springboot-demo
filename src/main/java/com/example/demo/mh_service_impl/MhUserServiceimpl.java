@@ -5,7 +5,6 @@ import com.example.demo.mh_entity.User;
 import com.example.demo.mh_entity.UserSearchWord;
 import com.example.demo.mh_service.MhUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

@@ -34,5 +34,5 @@ mybatis:
 #  validate-on-migrate: false
 logging:
   level:
-    com.example.demo.mh_dao.UserMapper:
+    com.example.demo.mh_dao.UserMassageMapper:
       debug

@@ -3,11 +3,11 @@ package com.example.demo.mh_entity;
 public class ArticleClass {
     private Integer id;
 
-    private String className;
+    private String classType;
 
-    public ArticleClass(Integer id, String className) {
+    public ArticleClass(Integer id, String classType) {
         this.id = id;
-        this.className = className;
+        this.classType = classType;
     }
 
     public ArticleClass() {
@@ -22,11 +22,11 @@ public class ArticleClass {
         this.id = id;
     }
 
-    public String getClassName() {
-        return className;
+    public String getClassType() {
+        return classType;
     }
 
-    public void setClassName(String className) {
-        this.className = className == null ? null : className.trim();
+    public void setClassType(String classType) {
+        this.classType = classType == null ? null : classType.trim();
     }
 }

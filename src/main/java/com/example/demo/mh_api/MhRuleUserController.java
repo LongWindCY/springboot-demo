@@ -6,7 +6,10 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -34,7 +37,7 @@ public class MhRuleUserController {
      */
     @ApiOperation(value = "根据id获取管理员", notes = "获取指定id管理员", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @RequestMapping(method = RequestMethod.GET, value = "/A01")
-    RuleUser selectRuleUserById(int id){
+    public RuleUser selectRuleUserById(int id){
         return mhRuleUserService.selectRuleUserById(id);
     }
 
@@ -44,8 +47,10 @@ public class MhRuleUserController {
      */
     @ApiOperation(value = "查找所有管理员", notes = "查找所有管理员", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @RequestMapping(method = RequestMethod.GET, value = "/A02")
-    List<RuleUser> selectAllRuleUser(){
-        return mhRuleUserService.selectAllRuleUser();
+    public List<RuleUser> selectAllRuleUser(Integer page,
+                                     Integer pageSize){
+        Integer offset = (page - 1)*pageSize;
+        return mhRuleUserService.selectAllRuleUser(pageSize,offset);
     }
 
     /**
@@ -58,7 +63,7 @@ public class MhRuleUserController {
      */
     @ApiOperation(value = "添加管理员", notes = "添加管理员", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @RequestMapping(method = RequestMethod.POST, value = "/A03")
-    int addUser(String account, String password,int power, String remark){
+    public int addUser(String account, String password,int power, String remark){
         RuleUser ruleUser = new RuleUser(account,password,remark,power);
         return mhRuleUserService.addRuleUser(ruleUser);
     }
@@ -69,20 +74,20 @@ public class MhRuleUserController {
      * @return
      */
     @ApiOperation(value = "根据id删除管理员", notes = "根据id删除管理员", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @RequestMapping(method = RequestMethod.GET, value = "/A04")
-    int deleteRuleUserById(int id){
+    @RequestMapping(method = RequestMethod.POST, value = "/A04")
+    public int deleteRuleUserById(int id){
         return mhRuleUserService.deleteRuleUserById(id);
     }
 
     /**
-     * login 用户登录
+     * login 管理员登录
      * @param account
      * @param password
      * @return
      */
-    @ApiOperation(value = "用户登录", notes = "用户登录", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @ApiOperation(value = "管理员登录", notes = "管理员登录", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @RequestMapping(method = RequestMethod.POST, value = "/A05")
-    public RuleUser getUserByAccountAndPassword( String account, String password){
+    public RuleUser getUserByAccountAndPassword(String account, String password){
 //        System.out.println(account + password); //测试
         RuleUser selectUser = new RuleUser(account,password);
         RuleUser ruleUser = mhRuleUserService.loginByAccountAndPassword(selectUser);
@@ -90,5 +95,27 @@ public class MhRuleUserController {
             return ruleUser;
         }else
             return null;
+    }
+
+    /**
+     * 管理员总条目
+     * @return
+     */
+    @ApiOperation(value = "管理员总条目", notes = "管理员总条目", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(method = RequestMethod.GET, value = "/A06")
+    public int countRuleUser(){
+        return mhRuleUserService.countRuleUser();
+    }
+
+
+    @ApiOperation(value = "权限设置", notes = "权限设置", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(method = RequestMethod.POST, value = "/A07")
+    public int updateByPrimaryKey(Integer id,
+                               String account,
+                               String password,
+                               String remark,
+                               Integer power){
+        RuleUser ruleUser = new RuleUser(id,account,password,remark,power,null,null);
+        return mhRuleUserService.updateByPrimaryKey(ruleUser);
     }
 }
