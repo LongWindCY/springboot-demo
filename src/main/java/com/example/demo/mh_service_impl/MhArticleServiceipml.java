@@ -48,4 +48,14 @@ public class MhArticleServiceipml implements MhArticleService {
     public int deleteByPrimaryKey(Integer id){
         return articleMapper.deleteByPrimaryKey(id);
     }
+
+    /**
+     * 获取文章id
+     * @param id
+     * @return
+     */
+    public Article selectByPrimaryKey(Integer id){
+        return articleMapper.selectByPrimaryKey(id);
+    }
+
 }

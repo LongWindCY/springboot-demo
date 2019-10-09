@@ -11,4 +11,6 @@ public interface MhArticleService extends MhBseService{
     int countArticle(ArticleSearchWord articleSearchWord);
 
     int deleteByPrimaryKey(Integer id);
+
+    Article selectByPrimaryKey(Integer id);
 }

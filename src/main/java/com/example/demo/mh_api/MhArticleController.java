@@ -74,4 +74,16 @@ public class MhArticleController {
     public int deleteByPrimaryKey(Integer id){
         return mhArticleService.deleteByPrimaryKey(id);
     }
+
+    /**
+     * 获取文章id
+     * @param id
+     * @return
+     */
+    @ApiOperation(value = "获取文章id", notes = "获取文章id", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(method = RequestMethod.GET, value = "/A04")
+    public Article selectByPrimaryKey(Integer id){
+        return mhArticleService.selectByPrimaryKey(id);
+    }
+
 }
