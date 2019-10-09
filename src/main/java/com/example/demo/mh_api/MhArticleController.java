@@ -63,4 +63,15 @@ public class MhArticleController {
         ArticleSearchWord articleSearchWord = new ArticleSearchWord(pageSize,offset,classId,searchTitle);
         return mhArticleService.countArticle(articleSearchWord);
     }
+
+    /**
+     * 删除文章id
+     * @param id
+     * @return
+     */
+    @ApiOperation(value = "删除文章", notes = "删除文章", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(method = RequestMethod.POST, value = "/A03")
+    public int deleteByPrimaryKey(Integer id){
+        return mhArticleService.deleteByPrimaryKey(id);
+    }
 }

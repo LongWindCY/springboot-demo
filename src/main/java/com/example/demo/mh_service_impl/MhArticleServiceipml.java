@@ -39,4 +39,13 @@ public class MhArticleServiceipml implements MhArticleService {
     public int countArticle(ArticleSearchWord articleSearchWord){
         return articleMapper.countArticle(articleSearchWord);
     }
+
+    /**
+     * 删除文章id
+     * @param id
+     * @return
+     */
+    public int deleteByPrimaryKey(Integer id){
+        return articleMapper.deleteByPrimaryKey(id);
+    }
 }
