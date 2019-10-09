@@ -39,6 +39,7 @@ CREATE TABLE `mh_userMassage`
 (
     `id` int(11) NOT NULL AUTO_INCREMENT,
     `user_id` int(11)  NOT NULL COMMENT '用户主键.',
+    `account` char(16) not null COMMENT '账户',
     `height` double not null COMMENT '身高',
     `weight` double not null COMMENT '体重',
     `bust` double not null COMMENT '胸围',

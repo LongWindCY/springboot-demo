@@ -5,6 +5,7 @@
     <constructor>
       <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="user_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="account" javaType="java.lang.String" jdbcType="CHAR" />
       <arg column="height" javaType="java.lang.Double" jdbcType="DOUBLE" />
       <arg column="weight" javaType="java.lang.Double" jdbcType="DOUBLE" />
       <arg column="bust" javaType="java.lang.Double" jdbcType="DOUBLE" />
@@ -18,7 +19,7 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    id, user_id, height, weight, bust, waist_line, hip_line, shoulder_width, sleeve_length, 
+    id, user_id,account, height, weight, bust, waist_line, hip_line, shoulder_width, sleeve_length,
     clothing_length, trousers_length, updated_at
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -27,16 +28,24 @@
     from mh_usermassage
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectAll" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  <select id="selectAll" parameterType="com.example.demo.mh_entity.MassageSearchWord" resultMap="BaseResultMap">
     select *
     from mh_usermassage
+    where concat(account) LIKE concat('%',#{searchAccount,jdbcType=CHAR},'%')
+    LIMIT #{pageSize} OFFSET #{offset}
+  </select>
+  <select id="countUserMassage" parameterType="com.example.demo.mh_entity.MassageSearchWord" resultType="int">
+    select COUNT(*)
+    from mh_usermassage
+    where concat(account) LIKE concat('%',#{searchAccount,jdbcType=CHAR},'%')
+    LIMIT #{pageSize} OFFSET #{offset}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from mh_usermassage
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.example.demo.mh_entity.UserMassage">
-    insert into mh_usermassage (user_id, height,
+    insert into mh_usermassage (user_id, account, height,
       weight, bust, waist_line, 
       hip_line, shoulder_width, sleeve_length, 
       clothing_length, trousers_length
@@ -55,6 +64,9 @@
       </if>
       <if test="userId != null">
         user_id,
+      </if>
+      <if test="account != null">
+        account,
       </if>
       <if test="height != null">
         height,
@@ -94,6 +106,9 @@
       <if test="userId != null">
         #{userId,jdbcType=INTEGER},
       </if>
+      <if test="account != null">
+        #{account,jdbcType=CHAR},
+      </if>
       <if test="height != null">
         #{height,jdbcType=DOUBLE},
       </if>
@@ -132,6 +147,9 @@
       <if test="userId != null">
         user_id = #{userId,jdbcType=INTEGER},
       </if>
+      <if test="account != null">
+        account = #{account,jdbcType=CHAR},
+      </if>
       <if test="height != null">
         height = #{height,jdbcType=DOUBLE},
       </if>
@@ -168,6 +186,7 @@
   <update id="updateByPrimaryKey" parameterType="com.example.demo.mh_entity.UserMassage">
     update mh_usermassage
     set user_id = #{userId,jdbcType=INTEGER},
+      account = #{account,jdbcType=CHAR},
       height = #{height,jdbcType=DOUBLE},
       weight = #{weight,jdbcType=DOUBLE},
       bust = #{bust,jdbcType=DOUBLE},
@@ -176,8 +195,7 @@
       shoulder_width = #{shoulderWidth,jdbcType=DOUBLE},
       sleeve_length = #{sleeveLength,jdbcType=DOUBLE},
       clothing_length = #{clothingLength,jdbcType=DOUBLE},
-      trousers_length = #{trousersLength,jdbcType=DOUBLE},
-      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+      trousers_length = #{trousersLength,jdbcType=DOUBLE}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

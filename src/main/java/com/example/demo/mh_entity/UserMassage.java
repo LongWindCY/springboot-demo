@@ -7,6 +7,8 @@ public class UserMassage {
 
     private Integer userId;
 
+    private String account;
+
     private Double height;
 
     private Double weight;
@@ -27,9 +29,10 @@ public class UserMassage {
 
     private Date updatedAt;
 
-    public UserMassage(Integer id, Integer userId, Double height, Double weight, Double bust, Double waistLine, Double hipLine, Double shoulderWidth, Double sleeveLength, Double clothingLength, Double trousersLength, Date updatedAt) {
+    public UserMassage(Integer id, Integer userId, String account, Double height, Double weight, Double bust, Double waistLine, Double hipLine, Double shoulderWidth, Double sleeveLength, Double clothingLength, Double trousersLength, Date updatedAt) {
         this.id = id;
         this.userId = userId;
+        this.account = account;
         this.height = height;
         this.weight = weight;
         this.bust = bust;
@@ -41,9 +44,10 @@ public class UserMassage {
         this.trousersLength = trousersLength;
         this.updatedAt = updatedAt;
     }
-    public UserMassage(Integer userId, Double height, Double weight, Double bust, Double waistLine, Double hipLine, Double shoulderWidth, Double sleeveLength, Double clothingLength, Double trousersLength) {
+    public UserMassage(Integer userId,String account, Double height, Double weight, Double bust, Double waistLine, Double hipLine, Double shoulderWidth, Double sleeveLength, Double clothingLength, Double trousersLength) {
         this.id = null;
         this.userId = userId;
+        this.account = account;
         this.height = height;
         this.weight = weight;
         this.bust = bust;
@@ -154,5 +158,13 @@ public class UserMassage {
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
     }
 }

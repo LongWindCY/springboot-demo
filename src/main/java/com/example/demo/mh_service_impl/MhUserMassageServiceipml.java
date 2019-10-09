@@ -1,6 +1,7 @@
 package com.example.demo.mh_service_impl;
 
 import com.example.demo.mh_dao.UserMassageMapper;
+import com.example.demo.mh_entity.MassageSearchWord;
 import com.example.demo.mh_entity.UserMassage;
 import com.example.demo.mh_service.MhUserMassageService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +56,25 @@ public class MhUserMassageServiceipml implements MhUserMassageService {
      * 查询所有用户信息
      * @return
      */
-    public List<UserMassage> selectAll(){
-        return userMassageMapper.selectAll();
+    public List<UserMassage> selectAll(MassageSearchWord massageSearchWord){
+        return userMassageMapper.selectAll(massageSearchWord);
+    }
+
+    /**
+     * 用户信息总条目
+     * @param massageSearchWord
+     * @return
+     */
+    public int countUserMassage(MassageSearchWord massageSearchWord){
+        return userMassageMapper.countUserMassage(massageSearchWord);
+    }
+
+    /**
+     * 更新用户信息
+     * @param userMassage
+     * @return
+     */
+    public int updateByPrimaryKey(UserMassage userMassage){
+        return userMassageMapper.updateByPrimaryKey(userMassage);
     }
 }
