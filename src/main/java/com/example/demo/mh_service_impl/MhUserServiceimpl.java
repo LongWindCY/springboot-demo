@@ -75,4 +75,13 @@ public class MhUserServiceimpl implements MhUserService {
     public int countUser(UserSearchWord userSearchWord){
         return userMapper.countUser(userSearchWord);
     }
+
+    /**
+     * 更新用户
+     * @param user
+     * @return
+     */
+    public int updateByPrimaryKey(User user){
+        return userMapper.updateByPrimaryKey(user);
+    }
 }

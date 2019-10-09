@@ -126,10 +126,34 @@ public class MhUserController {
                          String searchAddress,
                          String searchPhone,
                          String searchGender){
-        System.out.println(page + pageSize + searchAccount + searchAddress + searchGender + searchPhone);
+//        System.out.println(page + pageSize + searchAccount + searchAddress + searchGender + searchPhone);
         Integer offset = (page - 1)*pageSize;
         UserSearchWord userSearchWord = new UserSearchWord(pageSize,offset,searchAccount,searchAddress,searchPhone,searchGender);
         return mhUserService.countUser(userSearchWord);
+    }
+
+    /**
+     * 更新用户信息
+     * @param id
+     * @param account
+     * @param password
+     * @param gender
+     * @param address
+     * @param phone
+     * @param remark
+     * @return
+     */
+    @ApiOperation(value = "更新用户信息", notes = "用户总条目", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(method = RequestMethod.POST, value = "/A07")
+    public int updateByPrimaryKey(Integer id,
+                                  String account,
+                                  String password,
+                                  String gender,
+                                  String address,
+                                  String phone,
+                                  String remark){
+        User user = new User(id,account,password,phone,address,gender,remark,null,null);
+        return mhUserService.updateByPrimaryKey(user);
     }
 
 }

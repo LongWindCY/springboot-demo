@@ -153,9 +153,7 @@
       phone = #{phone,jdbcType=CHAR},
       address = #{address,jdbcType=CHAR},
       gender = #{gender,jdbcType=CHAR},
-      remark = #{remark,jdbcType=CHAR},
-      created_at = #{createdAt,jdbcType=TIMESTAMP},
-      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+      remark = #{remark,jdbcType=CHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

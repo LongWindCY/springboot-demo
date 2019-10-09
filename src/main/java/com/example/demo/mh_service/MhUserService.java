@@ -18,4 +18,6 @@ public interface MhUserService extends MhBseService {
     List<User> selectAllUser(UserSearchWord userSearchWord);
 
     int countUser(UserSearchWord userSearchWord);
+
+    int updateByPrimaryKey(User user);
 }
