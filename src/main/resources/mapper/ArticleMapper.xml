@@ -115,7 +115,6 @@
     update mh_article
     set class_id = #{classId,jdbcType=INTEGER},
       title = #{title,jdbcType=CHAR},
-      created_at = #{createdAt,jdbcType=TIMESTAMP},
       content = #{content,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>

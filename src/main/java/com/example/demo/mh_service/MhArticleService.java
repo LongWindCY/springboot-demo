@@ -13,4 +13,6 @@ public interface MhArticleService extends MhBseService{
     int deleteByPrimaryKey(Integer id);
 
     Article selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeyWithBLOBs(Article article);
 }

@@ -58,4 +58,13 @@ public class MhArticleServiceipml implements MhArticleService {
         return articleMapper.selectByPrimaryKey(id);
     }
 
+    /**
+     * 修改文章
+     * @param article
+     * @return
+     */
+    public int updateByPrimaryKeyWithBLOBs(Article article){
+        return articleMapper.updateByPrimaryKeyWithBLOBs(article);
+    }
+
 }

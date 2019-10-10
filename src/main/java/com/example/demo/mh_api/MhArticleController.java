@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -84,6 +85,26 @@ public class MhArticleController {
     @RequestMapping(method = RequestMethod.GET, value = "/A04")
     public Article selectByPrimaryKey(Integer id){
         return mhArticleService.selectByPrimaryKey(id);
+    }
+
+    /**
+     * 修改文章
+     * @param id
+     * @param title
+     * @param classId
+     * @param content
+     * @return
+     */
+    @ApiOperation(value = "修改文章", notes = "修改文章", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(method = RequestMethod.POST, value = "/A05")
+    public int updateByPrimaryKeyWithBLOBs(Integer id,
+                                           String title,
+                                           Integer classId,
+                                           String content){
+//        Date time = new Date("yyyy-MM-dd HH:mm:ss");//设置日期格式
+//        System.out.println(time);
+        Article article = new Article(id,classId,title,null,content);
+        return mhArticleService.updateByPrimaryKeyWithBLOBs(article);
     }
 
 }
