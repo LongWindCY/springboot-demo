@@ -148,22 +148,22 @@ CREATE TABLE `mh_article`
 
 
 
-DROP TABLE IF EXISTS `mh_order`;
-CREATE TABLE `mh_article`
-(
-    `id` int(11) NOT NULL AUTO_INCREMENT,
-    `user_id` int(11) NOT NULL COMMENT '用户id',
-    `order_account` char(16) NOT NULL COMMENT '账户.',
-    `order_massage` char(100)  NOT NULL COMMENT '订单信息',
-    `order_number` char(20) COMMENT '订单编号',
-    `address` char(100) COMMENT '地址',
-    `phone` char(11) COMMENT '性别',
-    `remark` char(50) COMMENT '备注',
-    `state` char(4) COMMENT '订单状态',
-    `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-    `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
-    PRIMARY KEY (`id`)
-) ENGINE = InnoDB
-  DEFAULT CHARSET = utf8 COMMENT ='订单';
+# DROP TABLE IF EXISTS `mh_order`;
+# CREATE TABLE `mh_order`
+# (
+#     `id` int(11) NOT NULL AUTO_INCREMENT,
+#     `user_id` int(11) NOT NULL COMMENT '用户id',
+#     `order_account` char(16) NOT NULL COMMENT '账户.',
+#     `order_massage` char(100)  NOT NULL COMMENT '订单信息',
+#     `order_number` char(20) COMMENT '订单编号',
+#     `address` char(100) COMMENT '地址',
+#     `phone` char(11) COMMENT '性别',
+#     `remark` char(50) COMMENT '备注',
+#     `state` char(4) COMMENT '订单状态',
+#     `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+#     `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+#     PRIMARY KEY (`id`)
+# ) ENGINE = InnoDB
+#   DEFAULT CHARSET = utf8 COMMENT ='订单';
 # 启动外键约束.
 SET FOREIGN_KEY_CHECKS = 1;

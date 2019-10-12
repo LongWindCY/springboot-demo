@@ -6,7 +6,7 @@
       <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="title" javaType="java.lang.String" jdbcType="CHAR" />
       <arg column="parent_id" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="route" javaType="java.lang.String" jdbcType="CHAR" />
+<!--      <arg column="route" javaType="java.lang.String" jdbcType="CHAR" />-->
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">

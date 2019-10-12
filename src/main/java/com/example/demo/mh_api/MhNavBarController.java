@@ -37,7 +37,7 @@ public class MhNavBarController {
      */
     @ApiOperation(value = "通过id获取指定导航栏", notes = "通过id获取指定导航栏", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @RequestMapping(method = RequestMethod.GET, value = "/A01")
-    NavBar selectByPrimaryKey(int id){
+    public NavBar selectByPrimaryKey(int id){
         return mhNavBarService.selectByPrimaryKey(id);
     }
 
@@ -47,7 +47,7 @@ public class MhNavBarController {
      */
     @ApiOperation(value = "获取全部导航栏", notes = "获取全部导航栏", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @RequestMapping(method = RequestMethod.GET, value = "/A02")
-    List<NavBar> selectAll(){
+    public List<NavBar> selectAll(){
         return mhNavBarService.selectAll();
     }
 
@@ -58,7 +58,7 @@ public class MhNavBarController {
      */
     @ApiOperation(value = "删除指定id导航栏", notes = "删除指定id导航栏", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @RequestMapping(method = RequestMethod.GET, value = "/A03")
-    int deleteByPrimaryKey(int id){
+    public int deleteByPrimaryKey(int id){
         return mhNavBarService.deleteByPrimaryKey(id);
     }
 
@@ -70,7 +70,7 @@ public class MhNavBarController {
      */
     @ApiOperation(value = "添加导航栏", notes = "添加导航栏", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
     @RequestMapping(method = RequestMethod.POST, value = "/A03")
-    int insert(String title, Integer parent_id){
+    public int insert(String title, Integer parent_id){
         NavBar navBar = new NavBar(title, parent_id);
         return mhNavBarService.insert(navBar);
     }
