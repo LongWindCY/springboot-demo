@@ -30,4 +30,13 @@ public class MhStoreServiceipml implements MhStoreService {
     public List<Store> selectAllStore(StoreSearchWord storeSearchWord){
         return storeMapper.selectAllStore(storeSearchWord);
     }
+
+    /**
+     * 统计
+     * @param storeSearchWord
+     * @return
+     */
+    public int countAllStore(StoreSearchWord storeSearchWord){
+        return storeMapper.countAllStore(storeSearchWord);
+    }
 }

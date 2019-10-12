@@ -19,4 +19,6 @@ public interface StoreMapper {
     int updateByPrimaryKey(Store record);
 
     List<Store> selectAllStore(StoreSearchWord storeSearchWord);
+
+    int countAllStore(StoreSearchWord storeSearchWord);
 }

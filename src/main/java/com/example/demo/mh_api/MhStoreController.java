@@ -27,7 +27,10 @@ public class MhStoreController {
     }
 
     /**
-     * 所有店铺信息
+     * 线下门店信息
+     * @param page
+     * @param pageSize
+     * @param keyword
      * @return
      */
     @ApiOperation(value = "店铺信息", notes = "店铺信息", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
@@ -39,4 +42,22 @@ public class MhStoreController {
         StoreSearchWord storeSearchWord = new StoreSearchWord(pageSize,offset,keyword);
         return mhStoreService.selectAllStore(storeSearchWord);
     }
+
+    /**
+     * 统计
+     * @param page
+     * @param pageSize
+     * @param keyword
+     * @return
+     */
+    @ApiOperation(value = "统计", notes = "统计", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @RequestMapping(method = RequestMethod.GET, value = "/A02")
+    public int countAllStore(Integer page,
+                             Integer pageSize,
+                             String keyword){
+        Integer offset = (page - 1)*pageSize;
+        StoreSearchWord storeSearchWord = new StoreSearchWord(pageSize,offset,keyword);
+        return mhStoreService.countAllStore(storeSearchWord);
+    }
+
 }

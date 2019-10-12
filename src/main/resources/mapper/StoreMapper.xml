@@ -26,6 +26,11 @@
     where concat(name,address,address_clear) LIKE concat('%',#{keyword,jdbcType=CHAR},'%')
     LIMIT #{pageSize,jdbcType=INTEGER} OFFSET #{offset,jdbcType=INTEGER}
   </select>
+  <select id="countAllStore" parameterType="com.example.demo.mh_entity.StoreSearchWord" resultType="int">
+    select COUNT(*)
+    from mh_store
+    where concat(name,address,address_clear) LIKE concat('%',#{keyword,jdbcType=CHAR},'%')
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from mh_store
     where id = #{id,jdbcType=INTEGER}
