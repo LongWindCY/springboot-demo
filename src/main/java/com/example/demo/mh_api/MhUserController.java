@@ -38,14 +38,14 @@ public class MhUserController {
      * @return
      */
     @ApiOperation(value = "用户登录", notes = "用户登录", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    @RequestMapping(method = RequestMethod.GET, value = "/A01")
-    public Boolean getUserByAccountAndPassword(String account,String password){
+    @RequestMapping(method = RequestMethod.POST, value = "/A01")
+    public User getUserByAccountAndPassword(String account,String password){
         User selectUser = new User(account,password);
         User user = mhUserService.loginByAccountAndPassword(selectUser);
         if (user != null){
-            return true;
+            return user;
         }else
-            return false;
+            return null;
     }
 
 
